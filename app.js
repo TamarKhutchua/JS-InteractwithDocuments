@@ -31,3 +31,13 @@ for (i = 0; i < fruits.length; i++) {
   info.innerHTML += i + 1 + " of " + fruits.length;
   info.innerHTML += " : " + fruits[i].innerText + "<br>";
 }
+
+const itemFour = document.createElement("li");
+const itemFive = document.createElement("li");
+const heading = document.getElementById("heading");
+itemFour.innerText = "London, England";
+itemFive.innerText = "Cape Town, South Africa";
+document.getElementById("listi").appendChild(itemFour);
+document.getElementById("listi").appendChild(itemFive);
+heading.setAttribute("style", "color:Red");
+heading.innerText = "Best Five Cities";
