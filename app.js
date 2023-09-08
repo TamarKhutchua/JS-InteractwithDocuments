@@ -83,26 +83,52 @@ function welcome() {
   }
 }
 
+// (function () {
+//   const box = document.getElementById("box");
+//   const btn = document.getElementById("btn");
+//   box.addEventListener("mouseover", function (event) {
+//     reactTo(event, "Red");
+//   });
+//   box.addEventListener("mouseout", function (event) {
+//     reactTo(event, "Purple");
+//   });
+//   box.addEventListener("mousedown", function (event) {
+//     reactTo(event, "Green");
+//   });
+//   box.addEventListener("mouseup", function (event) {
+//     reactTo(event, "Blue");
+//   });
+//   btn.addEventListener("click", function (event) {
+//     reactTo(event, "Orange");
+//   });
+// })();
+// function reactTo(event, color) {
+//   document.getElementById("box").style.background = color;
+//   document.getElementById("infoa").innerText = event.type;
+// }
+
 (function () {
-  const box = document.getElementById("box");
-  const btn = document.getElementById("btn");
-  box.addEventListener("mouseover", function (event) {
-    reactTo(event, "Red");
+  document.addEventListener("keydown", function (event) {
+    reactTo(event);
   });
-  box.addEventListener("mouseout", function (event) {
-    reactTo(event, "Purple");
+  document.addEventListener("keyup", function (event) {
+    reactTo(event);
   });
-  box.addEventListener("mousedown", function (event) {
-    reactTo(event, "Green");
-  });
-  box.addEventListener("mouseup", function (event) {
-    reactTo(event, "Blue");
-  });
-  btn.addEventListener("click", function (event) {
-    reactTo(event, "Orange");
+  document.addEventListener("mousemove", function (event) {
+    reactTo(event);
   });
 })();
-function reactTo(event, color) {
-  document.getElementById("box").style.background = color;
-  document.getElementById("infoa").innerText = event.type;
+function reactTo(event) {
+  const info = document.getElementById("infoo");
+  if (event.type === "mousemove") {
+    info.innerHTML = "Mouse pointer is at X:" + event.x + " Y:" + event.y;
+  }
+  if (event.type === "keydown") {
+    info.innerHTML += "<hr>" + event.type;
+    info.innerHTML += ": " + event.keyCode;
+  }
+  if (event.type === "keyup") {
+    info.innerHTML +=
+      "<br>" + event.type + ": " + String.fromCharCode(event.keyCode) + "<hr>";
+  }
 }
