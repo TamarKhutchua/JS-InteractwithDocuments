@@ -154,3 +154,20 @@ function reactTo(form, event) {
     event.preventDefault();
   }
 }
+
+(function () {
+  const list = document.getElementById("listk");
+  list.addEventListener("change", function () {
+    reactTo(list, event);
+  });
+  addEventListener("load", function () {
+    reactTo(list, event);
+  });
+})();
+function reactTo(list, event) {
+  const info = document.getElementById("infok");
+  let index = list.options.selectedIndex;
+  let city = list.options[index].value;
+  info.innerHTML = event.type + "<br>Selected: ";
+  info.innerHTML += city + "<br>Index: " + index;
+}
