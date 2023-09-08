@@ -71,3 +71,14 @@ if (value.indexOf(",")) {
 for (i = 0; i < value.length; i++) {
   list.innerHTML += "<li>" + value[i];
 }
+addEventListener("load", welcome);
+function welcome() {
+  const info = document.getElementById("infos");
+  if (getCookie("Name")) {
+    info.innerHTML = "Welcome Back, " + getCookie("Name");
+  } else {
+    let name = prompt("Please Enter Your Name", "User");
+    setCookie("Name", name, 7);
+    info.innerHTML = "Welcome, " + name;
+  }
+}
